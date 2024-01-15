@@ -1,4 +1,4 @@
-package com.client.sevices.impl;
+package com.client.services.impl;
 
 import com.client.services.ClientService;
 import com.core.convertors.ClientDtoToClientConvertor;
