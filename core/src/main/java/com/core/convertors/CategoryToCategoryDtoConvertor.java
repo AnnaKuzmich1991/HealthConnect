@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class CategoryToCategoryDtoConvertor extends Convertor<Category, CategoryDto> {
     private final TypeAppointmentToTypeAppointmentDtoConvertor typeAppointmentToTypeAppointmentDtoConvertor;
+
     @Override
     public CategoryDto convert(Category category) {
         CategoryDto categoryDto = super.modelMapper.map(category, CategoryDto.class);
@@ -23,6 +24,5 @@ public class CategoryToCategoryDtoConvertor extends Convertor<Category, Category
                 .toList();
         categoryDto.setAppointmentList(typeAppointments);
         return categoryDto;
-
     }
 }

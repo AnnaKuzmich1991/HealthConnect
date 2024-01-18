@@ -17,17 +17,19 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/v1/public/category")
 @RequiredArgsConstructor
-@CrossOrigin(origins = {"http://localhost:3006","http://localhost:3000"})
+@CrossOrigin(origins = {"http://localhost:3006", "http://localhost:3000"})
 public class CategoryController {
     private final CategoryServiceImpl categoryService;
+
     @GetMapping
-    public List<CategoryDto> getAll(){
+    public List<CategoryDto> getAll() {
         List<CategoryDto> allCategories = categoryService.getAllCategories();
         return allCategories;
     }
+
     @GetMapping("/typeAppointmentsNames")
-    public List<String> getAllTypeAppointmentsName(){
-        List<String> typeAppointmentsNames=  categoryService.getAllTypeAppointmentsName();
+    public List<String> getAllTypeAppointmentsName() {
+        List<String> typeAppointmentsNames = categoryService.getAllTypeAppointmentsName();
         return typeAppointmentsNames;
     }
 }

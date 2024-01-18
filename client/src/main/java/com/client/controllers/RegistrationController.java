@@ -22,5 +22,4 @@ public class RegistrationController {
         log.info("Have been registered client with login " + registration.getLogin());
         return ResponseEntity.ok(registration);
     }
-
 }

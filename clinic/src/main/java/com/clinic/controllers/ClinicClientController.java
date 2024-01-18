@@ -17,9 +17,8 @@ import java.util.List;
 public class ClinicClientController {
     private final ClinicClientServiceImpl clinicClientService;
 
-/*    @GetMapping
+    @GetMapping
     public ResponseEntity<List<ClientDto>> getAllClients() {
         return new ResponseEntity<>(clinicClientService.getAllClients(), HttpStatus.OK);
-    }*/
-
+    }
 }

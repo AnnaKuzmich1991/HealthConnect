@@ -21,15 +21,16 @@ public class JwtTokenUtils {
     private String secret;
     @Value("30m")
     private Duration jwtLifeTime;
-    public String generateToken(UserDetails userDetails){
-        Map<String,Object> claims = new HashMap<>();
+
+    public String generateToken(UserDetails userDetails) {
+        Map<String, Object> claims = new HashMap<>();
         List<String> roles = userDetails.getAuthorities()
                 .stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.toList());
         claims.put("roles", roles);
         Date createDate = new Date();
-        Date expirationDate = new Date(createDate.getTime()+jwtLifeTime.toMillis());
+        Date expirationDate = new Date(createDate.getTime() + jwtLifeTime.toMillis());
         return Jwts.builder()
                 .setClaims(claims)
                 .setSubject(userDetails.getUsername())
@@ -38,15 +39,18 @@ public class JwtTokenUtils {
                 .signWith(SignatureAlgorithm.HS256, secret)
                 .compact();
     }
+
     public String getUsername(String token) {
         return getAllClaimsFromToken(token).getSubject();
     }
-    private Claims getAllClaimsFromToken (String token) {
+
+    private Claims getAllClaimsFromToken(String token) {
         return Jwts.parser()
                 .setSigningKey(secret)
                 .parseClaimsJws(token)
                 .getBody();
     }
+
     public List<String> getRoles(String token) {
         return getAllClaimsFromToken(token).get("roles", List.class);
     }
