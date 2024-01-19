@@ -41,7 +41,7 @@ function AddDoctorForm(props) {
                 'Authorization': `Bearer ${localStorage.getItem("token")}`
             }
         }).then(resp => console.log(resp))
-            .catch(err => alert("Check your role"))
+            .catch(err=>alert("Check your role"))
     }
 
     return (

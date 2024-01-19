@@ -4,7 +4,7 @@ import {Col, Row} from "react-bootstrap";
 import LeftMenu from "./LeftMenu";
 
 function DepartDetails(props) {
-    let {id} = useParams();
+    let { id } = useParams();
     return (
         <Row>
             <Col sm={2}>

@@ -8,16 +8,14 @@ import axios from "axios";
 import {Link} from "react-router-dom";
 
 function Depart(props) {
-    const [departments, setDepartments] = useState([]);
-    const img = [teethDepart, operationDepart, terapDepart, laboratory];
+    const [departments,setDepartments]=useState([]);
+    const img=[teethDepart,operationDepart,terapDepart,laboratory];
     useEffect(() => {
         const apiUrl = 'http://localhost:8082/api/v1/public/category';
         axios.get(apiUrl).then((resp) => {
             const data = resp.data;
             setDepartments(data);
-        }).catch(err => {
-            console.error(err)
-        });
+        }).catch(err=>{console.error(err)});
     }, [setDepartments]);
 
 
@@ -27,12 +25,11 @@ function Depart(props) {
                 {departments.map((d) => (
                     <Col key={d.id}>
                         <Card style={{width: '18rem', height: '26rem', marginTop: '2px'}}>
-                            <Card.Img variant='top' src={img[d.id - 1]}/>
+                            <Card.Img variant='top' src={img[d.id-1]}/>
                             <Card.Body>
                                 <Card.Title>{d.name}</Card.Title>
                                 <Card.Text>{d.description}</Card.Text>
-                                <Link style={{color: 'green'}} to={`/departDetails/${d.id}`}> <Button
-                                    variant='primary'>Details</Button> </Link>
+                                <Link style={{color: 'green'}} to={`/departDetails/${d.id}`}> <Button variant='primary'>Details</Button> </Link>
                             </Card.Body>
                         </Card>
                     </Col>

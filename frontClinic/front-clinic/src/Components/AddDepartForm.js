@@ -2,11 +2,9 @@ import React, {useState} from 'react';
 import {Button, Col, Form, Row} from "react-bootstrap";
 import LeftMenuAdmin from "./LeftMenuAdmin";
 import axios from "axios";
-
 function AddDepartForm(props) {
-    const [name, setName] = useState();
-    const [description, setDescription] = useState();
-
+    const [name,setName]=useState();
+    const [description,setDescription]=useState();
     function handleAddDepart() {
 
     }

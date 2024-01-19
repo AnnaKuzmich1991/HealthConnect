@@ -3,15 +3,15 @@ import Depart from "./Depart";
 import {Col, Row} from "react-bootstrap";
 import LeftMenu from "./LeftMenu";
 
-function Home(props) {
+function  Home (props) {
 
     return (
         <>
             <Row>
-                <Col sm={2}>
+                <Col sm={2} >
                     <LeftMenu/>
                 </Col>
-                <Col sm={8}>
+                <Col sm={8} >
                     <Depart/>
                 </Col>
 

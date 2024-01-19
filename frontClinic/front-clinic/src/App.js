@@ -15,28 +15,28 @@ import AddDepartForm from "./Components/AddDepartForm";
 
 
 function App() {
-    const [token, setToken] = useState(localStorage.getItem("token"));
+  const [token, setToken] = useState(localStorage.getItem("token"));
 
-    return (
-        <>
-            <AuthContext.Provider value={token}>
-                <Router>
-                    <NaviBar/>
-                    <Routes>
-                        <Route exact path="/" element={<Home/>}/>
-                        <Route exact path="/depart" element={<Departments/>}/>
-                        <Route exact path="/departDetails/:id" element={<DepartDetails/>} />
-                        <Route exact path="/admin" element={<Admin/>} />
-                        <Route exact path="/addDoctor" element={<AddDoctorForm/>} />
-                        <Route exact path="/addDepart" element={<AddDepartForm/>} />
-                    </Routes>
-                    <Footer/>
-                </Router>
-            </AuthContext.Provider>
-        </>
+  return (
+      <>
+        <AuthContext.Provider value={token}>
+          <Router>
+            <NaviBar/>
+            <Routes>
+              <Route exact path="/" element={<Home/>}/>
+              <Route exact path="/depart" element={<Departments/>}/>
+              <Route exact path="/departDetails/:id" element={<DepartDetails/>} />
+              <Route exact path="/admin" element={<Admin/>} />
+              <Route exact path="/addDoctor" element={<AddDoctorForm/>} />
+              <Route exact path="/addDepart" element={<AddDepartForm/>} />
+            </Routes>
+            <Footer/>
+          </Router>
+        </AuthContext.Provider>
+      </>
 
 
-    );
+  );
 }
 
 export default App;
