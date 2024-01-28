@@ -4,7 +4,6 @@ import {Button} from "react-bootstrap";
 function About(props) {
     const token=useContext(AuthContext);
 
-
     return (
         <div>
             {token}
@@ -13,5 +12,4 @@ function About(props) {
         </div>
     );
 }
-
 export default About;
