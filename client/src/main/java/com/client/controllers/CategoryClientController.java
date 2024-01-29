@@ -1,7 +1,6 @@
 package com.client.controllers;
 
 import com.core.dto.CategoryDto;
-import com.core.models.Category;
 import com.core.services.impl.CategoryServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +15,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CategoryClientController {
     private final CategoryServiceImpl categoryService;
-
     @GetMapping
-    public ResponseEntity<List<CategoryDto>> getAll() {
-        return ResponseEntity.ok(categoryService.getAllCategories());
+    public ResponseEntity<List<CategoryDto>>  getAll(){
+        return ResponseEntity.ok(categoryService.getAllCategories())   ;
     }
 }
