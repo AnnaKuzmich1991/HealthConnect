@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from 'react';
-import {Button, Col, Form, Row} from "react-bootstrap";
+import React, {useContext, useEffect, useState} from 'react';
+import {Button, Col, Form, Row, Toast} from "react-bootstrap";
 import LeftMenuAdmin from "./LeftMenuAdmin";
 import axios from "axios";
+import {AuthContext} from "../Context/AuthContext";
 
 function AddDoctorForm(props) {
     const [login, setLogin] = useState("");
@@ -12,6 +13,8 @@ function AddDoctorForm(props) {
     const [specialization, setSpecialization] = useState("");
     const [typeAppointment, setTypeAppointment] = useState("");
     const [listTypeAppointment, setListTypeAppointment] = useState([]);
+    const token = useContext(AuthContext);
+    const [showSuccessToast, setShowSuccessToast] = useState(false); // State for success toast
 
 
     useEffect(() => {
@@ -94,6 +97,13 @@ function AddDoctorForm(props) {
                     </Form.Group>
                     <Button variant="primary" className="me-3 my-lg-3" onClick={handleAddDoctor}>Add Doctor</Button>
                 </Form>
+                {/* Success Toast */}
+                <Toast show={showSuccessToast} onClose={() => setShowSuccessToast(false)} delay={3000} autohide>
+                    <Toast.Header>
+                        <strong className="me-auto">Success</strong>
+                    </Toast.Header>
+                    <Toast.Body>Doctor successfully added!</Toast.Body>
+                </Toast>
             </Col>
         </Row>
     );

@@ -15,7 +15,6 @@ import AddDepartForm from "./Components/AddDepartForm";
 import AppointmentDetails from "./Components/AppointmentDetails";
 import ScheduleDoctor from "./Components/ScheduleDoctor";
 
-
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
 
