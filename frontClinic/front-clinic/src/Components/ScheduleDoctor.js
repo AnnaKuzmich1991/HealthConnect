@@ -16,7 +16,9 @@ function ScheduleDoctor(props) {
 
     useEffect(() => {
         const apiUrl = 'http://localhost:8082/api/v1/public/doctor/' + id;
-        axios.get(apiUrl)
+        axios.get(apiUrl, {headers:{
+                'Authorization': 'Bearer ' + localStorage.getItem("token")
+            }})
             .then((resp) => {
                 const data = resp.data;
                 // Устанавливаем данные доктора в состояние
@@ -24,7 +26,7 @@ function ScheduleDoctor(props) {
                 console.log(data);
             })
             .catch(err => {
-                console.error(err)
+                console.error(err);
             });
     }, [id, setDoctorData]);
 
@@ -56,7 +58,7 @@ function ScheduleDoctor(props) {
 
     return (
         <div>
-            <h2 style={{color: "blue", textAlign: "center"}}>Doctor:{doctorData.secondName} {doctorData.firstName} {doctorData.lastName} {id}</h2>
+            <h2 style={{color: "blue", textAlign: "center"}}>Doctor: {doctorData.secondName} {doctorData.firstName} {doctorData.lastName}</h2>
             <Fullcalendar
                 plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
                 initialView={"dayGridMonth"}

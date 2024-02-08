@@ -31,8 +31,8 @@ function AppointmentDetails(props) {
                 <Table striped bordered hover>
                     <thead>
                     <tr>
-                        <th>First Name</th>
                         <th>Second Name</th>
+                        <th>First Name</th>
                         <th>Last Name</th>
                         <th>Specialization</th>
                         <th>Check out</th>
@@ -40,8 +40,8 @@ function AppointmentDetails(props) {
                     </thead>
                     <tbody> {doctors.map((d) => (
                         <tr>
-                            <td>{d.firstName}</td>
                             <td>{d.secondName}</td>
+                            <td>{d.firstName}</td>
                             <td>{d.lastName}</td>
                             <td>{d.specialization}</td>
                             <td><Button variant="primary" className="me-3" href={`/scheduleDoctor/${d.id}`}>Schedule</Button></td>

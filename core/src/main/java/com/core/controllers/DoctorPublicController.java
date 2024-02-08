@@ -18,4 +18,8 @@ public class DoctorPublicController {
     public List<DoctorDto> doctorsByAppointment(@PathVariable Integer appointmentId) {
         return doctorService.getDoctorsByAppointments(appointmentId);
     }
+    @GetMapping("/{id}")
+    public DoctorDto doctorById(@PathVariable Long id) {
+        return doctorService.getDoctorById(id);
+    }
 }

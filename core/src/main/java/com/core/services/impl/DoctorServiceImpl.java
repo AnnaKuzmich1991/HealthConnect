@@ -41,6 +41,12 @@ public class DoctorServiceImpl implements DoctorService {
                 .filter(doctor -> doctor.getTypeAppointment().getId() == appointmentId)
                 .map(doctorToDoctorDtoConvertor::convert)
                 .toList();
+    }
 
+    @Override
+    public DoctorDto getDoctorById(Long doctorId) {
+        return doctorRepository.findById(doctorId)
+                .map(doctorToDoctorDtoConvertor::convert)
+                .orElseThrow(() -> new RuntimeException("Doctor with id " + doctorId + " didn't find"));
     }
 }
