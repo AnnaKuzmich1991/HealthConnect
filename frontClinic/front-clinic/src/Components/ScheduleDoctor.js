@@ -1,12 +1,11 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import Fullcalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import {Button, Form, Modal} from "react-bootstrap";
+import {Button, Modal} from "react-bootstrap";
 import axios from "axios";
-import {jwtDecode} from "jwt-decode";
 
 function ScheduleDoctor(props) {
     let {id} = useParams();
@@ -15,6 +14,7 @@ function ScheduleDoctor(props) {
     const handleClose = () => setShow(false);
     const [listAppointment, setListAppointment] = useState([]);
 
+    //для вывода ФИО доктора
     useEffect(() => {
         const apiUrl = 'http://localhost:8082/api/v1/public/doctor/' + id;
         axios.get(apiUrl, {
@@ -34,16 +34,14 @@ function ScheduleDoctor(props) {
     }, [id, setDoctorData]);
 
     useEffect(() => {
-        const apiUrl = 'http://localhost:8081/api/v1/clinic/appointment/byDoctor/' + id;
+        const apiUrl = 'http://localhost:8081/api/v1/clinic/appointment/byDoctor/'+ id;;
 
-        axios.get(apiUrl, {
-            headers: {
+        axios.get(apiUrl,{headers:{
                 'Authorization': 'Bearer ' + localStorage.getItem("token")
-            }
-        })
+            }})
             .then((resp) => {
                 const data = resp.data;
-                console.log(data);
+                console.log(data)
                 setListAppointment(data);
             }).catch(err => {
             console.error(err)
@@ -56,14 +54,13 @@ function ScheduleDoctor(props) {
         console.log(id);
         axios.post("http://localhost:8081/api/v1/clinic/appointment", {
             doctorId: id,
-            date: e.date
-        }, {
-            headers: {
+            date:e.date
+        },{headers:{
                 'Authorization': 'Bearer ' + localStorage.getItem("token")
-            }
-        })
+            }})
             .then(function (response) {
-
+                console.log(response.data)
+                setListAppointment(response.data)
                 handleClose();
             })
             .catch(function (error) {
@@ -88,6 +85,7 @@ function ScheduleDoctor(props) {
                     end: "dayGridMonth,timeGridWeek,timeGridDay", // will normally be on the right. if RTL, will be on the left
                 }}
                 height={"90vh"}
+                timeZone={'Europe/Minsk'}
                 events={listAppointment}
                 dateClick={handleDateClick}
 
@@ -97,7 +95,7 @@ function ScheduleDoctor(props) {
                     <Modal.Title>Add Appointment</Modal.Title>
                 </Modal.Header>
                 <Modal.Footer>
-                    <Button variant="primary">Add</Button>
+                    <Button variant="primary" >Add</Button>
                 </Modal.Footer>
             </Modal>
         </div>
