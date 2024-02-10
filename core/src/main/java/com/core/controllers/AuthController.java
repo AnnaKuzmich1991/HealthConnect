@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@CrossOrigin(origins = {"http://localhost:3006", "http://localhost:3000"})
+@CrossOrigin(origins = {"http://localhost:3006","http://localhost:3000"})
 public class AuthController {
     private final AuthenticationManager authenticationManager;
     private final CustomUserDetailsService customUserDetailsService;
@@ -27,8 +27,8 @@ public class AuthController {
     public ResponseEntity<?> createToken(@RequestBody JwtRequestDto jwtRequestDto) {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(jwtRequestDto.getUsername()
-                    , jwtRequestDto.getPassword()));
-        } catch (BadCredentialsException e) {
+                    ,jwtRequestDto.getPassword()));
+        }catch (BadCredentialsException e) {
             return new ResponseEntity<>(new NotValidCredentials(HttpStatus.UNAUTHORIZED.value(), "Wrong credentials")
                     , HttpStatus.UNAUTHORIZED);
         }
