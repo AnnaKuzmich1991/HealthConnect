@@ -1,9 +1,9 @@
 import React from 'react';
-import {Carousel, Col, Row} from 'react-bootstrap';
-import clinicImg1 from '../asserts/clinic1.jpg'
-import clinicImg2 from '../asserts/clinic2.jpg'
-import clinicImg3 from '../asserts/clinic3.jpg'
-import clinicImg4 from '../asserts/clinic4.jpg'
+import { Carousel, Col, Row } from 'react-bootstrap';
+import clinicImg1 from '../asserts/clinic1.jpg';
+import clinicImg2 from '../asserts/clinic2.jpg';
+import clinicImg3 from '../asserts/clinic3.jpg';
+import clinicImg4 from '../asserts/clinic4.jpg';
 import styled from "styled-components";
 import LeftMenu from "./LeftMenu";
 
@@ -15,9 +15,14 @@ const Styles = styled.div`
       color: green;
     }
   }
-`
-const Slider = () => {
 
+  .carousel-item img {
+    max-width: 100%;
+    height: auto;
+  }
+`;
+
+const Slider = () => {
     return (
         <>
             <Styles>
@@ -29,9 +34,8 @@ const Slider = () => {
                         <Carousel>
                             <Carousel.Item>
                                 <img
-                                    className="d-block w-100"
+                                    className="d-block"
                                     src={clinicImg1}
-                                    height="600"
                                     alt="clinic"
                                 />
                                 <Carousel.Caption>
@@ -41,9 +45,8 @@ const Slider = () => {
                             </Carousel.Item>
                             <Carousel.Item>
                                 <img
-                                    className="d-block w-100"
+                                    className="d-block"
                                     src={clinicImg2}
-                                    height="600"
                                     alt="clinic"
                                 />
                                 <Carousel.Caption>
@@ -53,9 +56,8 @@ const Slider = () => {
                             </Carousel.Item>
                             <Carousel.Item>
                                 <img
-                                    className="d-block w-100"
+                                    className="d-block"
                                     src={clinicImg3}
-                                    height="600"
                                     alt="clinic"
                                 />
                                 <Carousel.Caption>
@@ -65,9 +67,8 @@ const Slider = () => {
                             </Carousel.Item>
                             <Carousel.Item>
                                 <img
-                                    className="d-block w-100"
+                                    className="d-block"
                                     src={clinicImg4}
-                                    height="600"
                                     alt="clinic"
                                 />
                                 <Carousel.Caption>
