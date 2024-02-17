@@ -13,6 +13,7 @@ function ScheduleDoctor(props) {
     const [doctorData, setDoctorData] = useState({});
     const handleClose = () => setShow(false);
     const [listAppointment, setListAppointment] = useState([]);
+    const [d,setD]=useState(new Date())
 
     //для вывода ФИО доктора
     useEffect(() => {
@@ -49,12 +50,31 @@ function ScheduleDoctor(props) {
     }, [setListAppointment]);
 
     const handleDateClick = (e) => {
+        setD(e.date)
         setShow(true);
-        console.log(listAppointment);
-        console.log(id);
+        //console.log(listAppointment);
+        //console.log(id);
+        // axios.post("http://localhost:8081/api/v1/clinic/appointment", {
+        //     doctorId: id,
+        //     date:e.date
+        // },{headers:{
+        //         'Authorization': 'Bearer ' + localStorage.getItem("token")
+        //     }})
+        //     .then(function (response) {
+        //         console.log(response.data)
+        //         setListAppointment(response.data)
+        //     handleClose();
+        // })
+        //     .catch(function (error) {
+        //     console.log(error);
+        //     alert("Wrong credential")
+        // });
+    };
+
+    function addAppointment() {
         axios.post("http://localhost:8081/api/v1/clinic/appointment", {
             doctorId: id,
-            date:e.date
+            date:d
         },{headers:{
                 'Authorization': 'Bearer ' + localStorage.getItem("token")
             }})
@@ -67,8 +87,7 @@ function ScheduleDoctor(props) {
                 console.log(error);
                 alert("Wrong credential")
             });
-    };
-
+    }
 
     return (
         <div>
@@ -92,10 +111,11 @@ function ScheduleDoctor(props) {
             />
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Add Appointment</Modal.Title>
+                    <Modal.Title>Add Appointment {d.toISOString()}</Modal.Title>
                 </Modal.Header>
                 <Modal.Footer>
-                    <Button variant="primary" >Add</Button>
+                    <Button variant="primary" onClick={addAppointment} >Add</Button>
+                    <Button variant="primary" onClick={handleClose} >Close</Button>
                 </Modal.Footer>
             </Modal>
         </div>
