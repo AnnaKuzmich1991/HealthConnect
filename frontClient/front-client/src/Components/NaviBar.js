@@ -7,13 +7,13 @@ import {AuthContext} from "../Context/AuthContext";
 import {jwtDecode} from "jwt-decode";
 
 const Styles = styled.div`
-  a, .navbar-brand, .navbar-nav {
-    color: #abd1b8;
+    a, .navbar-brand, .navbar-nav {
+        color: #abd1b8;
 
-    &:hover {
-      color: white;
+        &:hover {
+            color: white;
+        }
     }
-  }
 `
 
 function NaviBar(props) {
@@ -110,6 +110,12 @@ function NaviBar(props) {
                             <Nav.Link href="/about">About Us</Nav.Link>
                             <Nav.Link href="/contacts">Contacts</Nav.Link>
                             <Nav.Link href="/blog">Blog</Nav.Link>
+                            {
+                                auth==="true"
+                                    ? <Nav.Link href="/clientAppointment">MyAppointment</Nav.Link>
+                                    :<></>
+                            }
+
                         </Nav>
                         <Nav>
                             {auth === "false"
