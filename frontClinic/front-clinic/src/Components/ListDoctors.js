@@ -31,9 +31,9 @@ function ListDoctors(props) {
                         <th>Second Name</th>
                         <th>Last Name</th>
                         <th>Specialization</th>
-                        <th>Активность</th>
-                        <th>Изменить активность</th>
-                        <th>Изменить данные</th>
+                        <th>Activity Status</th>
+                        <th>Change Activity</th>
+                        <th>Change Data</th>
 
                     </tr>
                     </thead>
@@ -44,8 +44,8 @@ function ListDoctors(props) {
                             <td>{d.lastName}</td>
                             <td>{d.specialization}</td>
                             <td>{d.active.toString()}</td>
-                            <td><Button variant="primary">Изменить активность</Button></td>
-                            <td><Button variant="primary">Изменить данные</Button></td>
+                            <td><Button variant="primary">Change Activity</Button></td>
+                            <td><Button variant="primary">Change Data</Button></td>
                         </tr>
                     ))}
                     </tbody>
