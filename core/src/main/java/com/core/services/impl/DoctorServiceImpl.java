@@ -57,4 +57,12 @@ public class DoctorServiceImpl implements DoctorService {
                 .map(doctorToDoctorDtoConvertor::convert)
                 .orElseThrow(() -> new RuntimeException("Doctor with id " + doctorId + " didn't find"));
     }
+
+    @Override
+    public List<DoctorDto> getAll() {
+        return doctorRepository.findAll()
+                .stream()
+                .map(doctorToDoctorDtoConvertor::convert)
+                .toList();
+    }
 }

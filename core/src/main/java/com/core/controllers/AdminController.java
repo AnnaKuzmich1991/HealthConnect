@@ -27,8 +27,9 @@ public class AdminController {
         log.info("Have been registered doctor with login " + dto.getLogin());
         return ResponseEntity.ok(doctorDto);
     }
+
     @PostMapping("/addDepart")
-    public ResponseEntity<CategoryDto> addDepart( CategoryDto categoryDto, MultipartFile file) {
+    public ResponseEntity<CategoryDto> addDepart(CategoryDto categoryDto, MultipartFile file) {
 //        DoctorDto dto = doctorService.addDoctor(doctorDto);
 //        log.info("Have been registered doctor with login " + dto.getLogin());
         return null;
