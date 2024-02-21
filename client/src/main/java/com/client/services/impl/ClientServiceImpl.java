@@ -1,6 +1,5 @@
 package com.client.services.impl;
 
-import com.client.services.ClientService;
 import com.core.convertors.ClientDtoToClientConvertor;
 import com.core.convertors.ClientToClientDtoConvertor;
 import com.core.dto.ClientDto;

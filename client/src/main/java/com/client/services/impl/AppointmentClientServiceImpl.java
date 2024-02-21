@@ -3,6 +3,7 @@ package com.client.services.impl;
 import com.client.dtos.AppointmentClientDto;
 import com.client.dtos.MyAppointmentsDto;
 import com.client.services.AppointmentClientService;
+import com.client.services.AppointmentClientService;
 import com.client.transformers.OrderToAppointmentByDoctorDto;
 import com.client.transformers.OrderToMyAppointmentDtoTransformer;
 import com.core.dto.AppointmentByDoctorDto;
