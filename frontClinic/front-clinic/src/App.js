@@ -29,7 +29,6 @@ function App() {
             <NaviBar/>
             <Routes>
               <Route exact path="/" element={<Home/>}/>
-              <Route exact path="/about" element={<About/>}/>
               <Route exact path="/depart" element={<Departments/>}/>
               <Route exact path="/departDetails/:id" element={<DepartDetails/>} />
               <Route exact path="/appointmentDetails/:id" element={<AppointmentDetails/>} />
@@ -39,6 +38,7 @@ function App() {
               <Route exact path="scheduleDoctor/:id" element={<ScheduleDoctor/>}/>
               <Route exact path="/listDoctors" element={<ListDoctors/>}/>
               <Route exact path="/appointmentRequest" element={<AppointmentRequest/>}/>
+              <Route exact path="/about" element={<About/>}/>
             </Routes>
             <Footer/>
           </Router>
