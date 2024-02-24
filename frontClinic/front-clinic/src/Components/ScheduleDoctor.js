@@ -7,13 +7,32 @@ import interactionPlugin from "@fullcalendar/interaction";
 import {Button, Modal} from "react-bootstrap";
 import axios from "axios";
 
-
 function ScheduleDoctor(props) {
     let {id} = useParams();
     const [show, setShow] = useState(false);
+    const [doctorData, setDoctorData] = useState({});
     const handleClose = () => setShow(false);
     const [listAppointment, setListAppointment] = useState([]);
     const [d,setD]=useState(new Date())
+
+    //для вывода ФИО доктора
+    useEffect(() => {
+        const apiUrl = 'http://localhost:8082/api/v1/public/doctor/' + id;
+        axios.get(apiUrl, {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem("token")
+            }
+        })
+            .then((resp) => {
+                const data = resp.data;
+                // Устанавливаем данные доктора в состояние
+                setDoctorData(data);
+                console.log(data);
+            })
+            .catch(err => {
+                console.error(err);
+            });
+    }, [id, setDoctorData]);
 
     useEffect(() => {
         const apiUrl = 'http://localhost:8081/api/v1/clinic/appointment/byDoctor/'+ id;;
@@ -33,7 +52,8 @@ function ScheduleDoctor(props) {
     const handleDateClick = (e) => {
         setD(e.date)
         setShow(true);
-
+        //console.log(listAppointment);
+        //console.log(id);
         // axios.post("http://localhost:8081/api/v1/clinic/appointment", {
         //     doctorId: id,
         //     date:e.date
@@ -71,6 +91,10 @@ function ScheduleDoctor(props) {
 
     return (
         <div>
+            <h2 style={{
+                color: "blue",
+                textAlign: "center"
+            }}>Doctor: {doctorData.secondName} {doctorData.firstName} {doctorData.lastName}</h2>
             <Fullcalendar
                 plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
                 initialView={"dayGridMonth"}
@@ -83,8 +107,6 @@ function ScheduleDoctor(props) {
                 timeZone={'Europe/Minsk'}
                 events={listAppointment}
                 dateClick={handleDateClick}
-                locale={"ru"}
-
             />
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
