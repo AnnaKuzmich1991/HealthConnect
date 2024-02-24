@@ -1,4 +1,4 @@
-package com.client.services;
+package com.client.sevices;
 
 import com.client.dtos.AppointmentClientDto;
 import com.client.dtos.MyAppointmentsDto;
@@ -12,4 +12,6 @@ public interface AppointmentClientService {
     void addAppointment(AppointmentClientDto appointment);
 
     List<MyAppointmentsDto> getMyAppointmentList(String userName);
+
+    void canceled(Long orderId);
 }

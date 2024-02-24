@@ -2,7 +2,7 @@ package com.client.controllers;
 
 import com.client.dtos.AppointmentClientDto;
 import com.client.dtos.MyAppointmentsDto;
-import com.client.services.impl.AppointmentClientServiceImpl;
+import com.client.sevices.impl.AppointmentClientServiceImpl;
 import com.core.dto.AppointmentByDoctorDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -29,6 +29,13 @@ public class AppointmentClientController {
     }
     @GetMapping("/myAppointments")
     public List<MyAppointmentsDto> getMyAppointments(Principal principal){
+        String userName = (String) ((UsernamePasswordAuthenticationToken) principal).getPrincipal();
+        return appointmentClientService.getMyAppointmentList(userName);
+    }
+    @PostMapping("canceled/{orderId}")
+    private List<MyAppointmentsDto> canceled(@PathVariable Long orderId,Principal principal){
+        appointmentClientService.canceled(orderId);
+
         String userName = (String) ((UsernamePasswordAuthenticationToken) principal).getPrincipal();
         return appointmentClientService.getMyAppointmentList(userName);
     }
