@@ -7,13 +7,13 @@ import {AuthContext} from "../Context/AuthContext";
 import {jwtDecode} from "jwt-decode";
 
 const Styles = styled.div`
-    a, .navbar-brand, .navbar-nav {
-        color: #abd1b8;
+  a, .navbar-brand, .navbar-nav {
+    color: #abd1b8;
 
-        &:hover {
-            color: white;
-        }
+    &:hover {
+      color: white;
     }
+  }
 `
 
 function NaviBar(props) {
