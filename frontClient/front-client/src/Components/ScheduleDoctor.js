@@ -84,8 +84,6 @@ function ScheduleDoctor(props) {
                 eventClick={handleEventClick}
                 events={listAppointment}
                 dateClick={handleDateClick}
-                locale={"ru"}
-
             />
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>

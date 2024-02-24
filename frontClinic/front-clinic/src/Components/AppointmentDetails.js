@@ -44,7 +44,7 @@ function AppointmentDetails(props) {
                             <td>{d.firstName}</td>
                             <td>{d.lastName}</td>
                             <td>{d.specialization}</td>
-                            <td><Button variant="primary" className="me-3" href={/scheduleDoctor/${d.id}}>Schedule</Button></td>
+                            <td><Button variant="primary" className="me-3" href={`/scheduleDoctor/${d.id}`}>Schedule</Button></td>
                         </tr>
                     ))}
                     </tbody>

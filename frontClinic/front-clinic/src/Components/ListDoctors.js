@@ -80,9 +80,9 @@ function ListDoctors(props) {
                             <th>Second Name</th>
                             <th>Last Name</th>
                             <th>Specialization</th>
-                            <th>Активность</th>
-                            <th>Изменить активность</th>
-                            <th>Изменить данные</th>
+                            <th>Activity Status</th>
+                            <th>Change Activity</th>
+                            <th>Change Data</th>
 
                         </tr>
                         </thead>
@@ -93,12 +93,12 @@ function ListDoctors(props) {
                                 <td>{d.lastName}</td>
                                 <td>{d.specialization}</td>
                                 <td>{d.active.toString()}</td>
-                                <td><Button variant="primary">Изменить активность</Button></td>
+                                <td><Button variant="primary">Change activity</Button></td>
                                 <td><Button variant="primary" onClick={(e => {
                                     setDoctorId(d.id)
                                     setActive(d.active)
                                     handleShow()
-                                })}>Изменить данные</Button></td>
+                                })}>Change data</Button></td>
                             </tr>
                         ))}
                         </tbody>

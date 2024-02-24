@@ -211,7 +211,7 @@ function NaviBar(props) {
                                           onChange={(e) => setBirthDay(e.target.value)}/>
                         </Form.Group>
                         <Form.Group controlId="fromBasicCheckBox">
-                            <Form.Check type="checkbox" label="Согласен на обработку персональных данных" checked={checkedBox} onChange={() => {setCheckedBox((!checkedBox))
+                            <Form.Check type="checkbox" label="I agree to the processing of personal data" checked={checkedBox} onChange={() => {setCheckedBox((!checkedBox))
                                 console.log(checkedBox)}} />
                         </Form.Group>
                     </Form>

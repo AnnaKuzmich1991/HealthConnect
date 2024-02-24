@@ -35,7 +35,7 @@ function ScheduleDoctor(props) {
     }, [id, setDoctorData]);
 
     useEffect(() => {
-        const apiUrl = 'http://localhost:8081/api/v1/clinic/appointment/byDoctor/'+ id;;
+        const apiUrl = 'http://localhost:8081/api/v1/clinic/appointment/byDoctor/'+ id;
 
         axios.get(apiUrl,{headers:{
                 'Authorization': 'Bearer ' + localStorage.getItem("token")

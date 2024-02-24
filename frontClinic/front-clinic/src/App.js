@@ -16,6 +16,7 @@ import AppointmentDetails from "./Components/AppointmentDetails";
 import ScheduleDoctor from "./Components/ScheduleDoctor";
 import ListDoctors from "./Components/ListDoctors";
 import AppointmentRequest from "./Components/AppointmentRequest";
+import About from "./Components/About";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <NaviBar/>
             <Routes>
               <Route exact path="/" element={<Home/>}/>
+              <Route exact path="/about" element={<About/>}/>
               <Route exact path="/depart" element={<Departments/>}/>
               <Route exact path="/departDetails/:id" element={<DepartDetails/>} />
               <Route exact path="/appointmentDetails/:id" element={<AppointmentDetails/>} />
