@@ -17,6 +17,7 @@ import ScheduleDoctor from "./Components/ScheduleDoctor";
 import ListDoctors from "./Components/ListDoctors";
 import AppointmentRequest from "./Components/AppointmentRequest";
 import About from "./Components/About";
+import Contacts from "./Components/Contacts";
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
               <Route exact path="/listDoctors" element={<ListDoctors/>}/>
               <Route exact path="/appointmentRequest" element={<AppointmentRequest/>}/>
               <Route exact path="/about" element={<About/>}/>
+              <Route exact path="/contacts" element={<Contacts/>}/>
             </Routes>
             <Footer/>
           </Router>

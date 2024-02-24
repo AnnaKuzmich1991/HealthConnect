@@ -1,12 +1,15 @@
 import React from 'react';
 
 function About(props) {
-
     const styles = {
         aboutContainer: {
             padding: '20px',
             backgroundColor: '#f5f5f5',
             borderRadius: '8px',
+            maxWidth: '1000px', // Максимальная ширина контейнера
+            margin: 'auto', // Центрирование контейнера
+            marginTop: '20px', // Отступ сверху
+            marginBottom: '20px', // Отступ сверху
         },
         heading: {
             color: '#0056b3',

@@ -13,6 +13,7 @@ import DepartDetails from "./Components/DepartDetails";
 import AppointmentDetails from "./Components/AppointmentDetails";
 import ScheduleDoctor from "./Components/ScheduleDoctor";
 import ClientAppointment from "./Components/ClientAppointment"
+import Contacts from "./Components/Contacts";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -30,6 +31,7 @@ function App() {
               <Route exact path="/appointmentDetails/:id" element={<AppointmentDetails/>} />
               <Route exact path="scheduleDoctor/:id" element={<ScheduleDoctor/>}/>
               <Route exact path="/clientAppointment" element={<ClientAppointment/>}/>
+              <Route exact path="/contacts" element={<Contacts/>}/>
             </Routes>
             <Footer/>
           </Router>

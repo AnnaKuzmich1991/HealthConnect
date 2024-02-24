@@ -1,21 +1,24 @@
 import React, { useContext, useState } from 'react';
-import { Button } from 'react-bootstrap'; // Ensure Button is imported if not already
+import { Button } from 'react-bootstrap';
 import { AuthContext } from "../Context/AuthContext";
-import AppointmentModal from './Modal'; // Importing AppointmentModal as discussed
+import AppointmentModal from './Modal';
 
 function About(props) {
     const token = useContext(AuthContext);
-    const [showModal, setShowModal] = useState(false); // State to control the visibility of the modal
+    const [showModal, setShowModal] = useState(false);
 
-    // Toggles the visibility of the modal
     const toggleModal = () => setShowModal(!showModal);
 
-    // Defining style objects
     const styles = {
         aboutContainer: {
             padding: '20px',
             backgroundColor: '#f5f5f5',
             borderRadius: '8px',
+            textAlign: 'left', // Text aligned to the left
+            maxWidth: '1000px', // Максимальная ширина контейнера
+            margin: 'auto', // Центрирование контейнера
+            marginTop: '20px', // Отступ сверху
+            marginBottom: '20px', // Отступ снизу
         },
         heading: {
             color: '#0056b3',
@@ -52,10 +55,8 @@ function About(props) {
             <h3 style={styles.heading}>Contact Us</h3>
             <p style={styles.paragraph}>If you have any questions or would like to schedule an appointment, please feel free to contact us. Our team is ready to assist you with your healthcare needs.</p>
 
-            {/* Button to open the modal */}
             <Button variant="primary" onClick={toggleModal}>Schedule an Appointment</Button>
 
-            {/* AppointmentModal now receives show, onHide, and token props */}
             <AppointmentModal show={showModal} onHide={toggleModal} token={token} />
         </div>
     );
