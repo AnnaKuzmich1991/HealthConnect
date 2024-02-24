@@ -1,10 +1,10 @@
-package com.client.sevices.impl;
+package com.client.services.impl;
 
-import com.client.services.ClientService;
 import com.core.convertors.ClientDtoToClientConvertor;
 import com.core.convertors.ClientToClientDtoConvertor;
 import com.core.dto.ClientDto;
 import com.core.repositories.ClientRepository;
+import com.client.services.ClientService;
 import com.core.enums.UserRole;
 import com.core.models.Client;
 import lombok.RequiredArgsConstructor;
