@@ -5,7 +5,7 @@ import NaviBar from "./Components/NaviBar";
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Home from "./Components/Home";
 import {AuthContext} from "./Context/AuthContext";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Departments from "./Components/Departments";
 import Footer from "./Components/Footer";
 import DepartDetails from "./Components/DepartDetails";
@@ -23,6 +23,9 @@ import DoctorAppointment from "./Components/DoctorAppointment";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
+  useEffect(() => {
+    document.title = "HealthConnectClinic"; // Установка нового названия вкладки
+  }, []);
 
   return (
       <>

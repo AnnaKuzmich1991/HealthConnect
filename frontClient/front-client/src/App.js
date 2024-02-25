@@ -6,7 +6,7 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Home from "./Components/Home";
 import About from "./Components/About";
 import {AuthContext} from "./Context/AuthContext";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Departments from "./Components/Departments";
 import Footer from "./Components/Footer";
 import DepartDetails from "./Components/DepartDetails";
@@ -17,6 +17,9 @@ import Contacts from "./Components/Contacts";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
+  useEffect(() => {
+    document.title = "HealthConnectClient"; // Установка нового названия вкладки
+  }, []);
 
   return (
       <>
