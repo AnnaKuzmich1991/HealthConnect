@@ -18,6 +18,7 @@ import ListDoctors from "./Components/ListDoctors";
 import AppointmentRequest from "./Components/AppointmentRequest";
 import About from "./Components/About";
 import Contacts from "./Components/Contacts";
+import DoctorAppointment from "./Components/DoctorAppointment";
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
               <Route exact path="/appointmentRequest" element={<AppointmentRequest/>}/>
               <Route exact path="/about" element={<About/>}/>
               <Route exact path="/contacts" element={<Contacts/>}/>
+              <Route exact path="/doctorAppointment" element={<DoctorAppointment/>}/>
             </Routes>
             <Footer/>
           </Router>

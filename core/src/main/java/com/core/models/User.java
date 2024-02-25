@@ -28,7 +28,7 @@ public class User implements UserDetails {
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
     private Set<UserRole> userRoles = new HashSet<>();
-    @Column(name = "active")
+    @Column(name = "active", columnDefinition = "boolean default true")
     private Boolean active;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     List<UserConnection> userConnections = new ArrayList<>();
