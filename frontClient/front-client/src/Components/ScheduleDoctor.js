@@ -13,6 +13,7 @@ function ScheduleDoctor(props) {
     let {id} = useParams();
     const [show, setShow] = useState(false);
     const [listAppointment, setListAppointment] = useState([]);
+    const [doctorData, setDoctorData] = useState({});
     const handleClose = () => setShow(false);
     const techEvents = [
         {
@@ -65,8 +66,32 @@ function ScheduleDoctor(props) {
             });
     };
 
+    //для вывода ФИО доктора
+    useEffect(() => {
+        const apiUrl = 'http://localhost:8082/api/v1/public/doctor/' + id;
+        axios.get(apiUrl, {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem("token")
+            }
+        })
+            .then((resp) => {
+                const data = resp.data;
+                // Устанавливаем данные доктора в состояние
+                setDoctorData(data);
+                console.log(data);
+            })
+            .catch(err => {
+                console.error(err);
+            });
+    }, [id, setDoctorData]);
+
     return (
         <div>
+            <h2 style={{
+                color: "#212529",
+                textAlign: "center",
+                fontSize: "1.75em"
+            }}>Doctor: {doctorData.secondName} {doctorData.firstName} {doctorData.lastName}</h2>
             <Fullcalendar
                 plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
                 initialView={"dayGridMonth"}
