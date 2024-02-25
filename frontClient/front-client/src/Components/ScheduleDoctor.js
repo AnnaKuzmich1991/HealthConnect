@@ -24,7 +24,7 @@ function ScheduleDoctor(props) {
         }
     ]
     useEffect(() => {
-        const apiUrl = 'http://localhost:8080/api/v1/client/appointment/byDoctor/'+ id;;
+        const apiUrl = 'http://localhost:8080/api/v1/client/appointment/byDoctor/'+ id;
 
         axios.get(apiUrl,{headers:{
                 'Authorization': 'Bearer ' + localStorage.getItem("token")
@@ -40,7 +40,6 @@ function ScheduleDoctor(props) {
     const handleDateClick = (e) => {
         setShow(true);
         console.log(e);
-
     };
 
     const handleEventClick = (e) => {
@@ -57,17 +56,14 @@ function ScheduleDoctor(props) {
                 'Authorization': 'Bearer ' + localStorage.getItem("token")
             }})
             .then(function (response) {
-                setShow(response.data)
+                setShow(response.data);
                 handleClose();
             })
             .catch(function (error) {
                 console.log(error);
                 alert("Wrong credential")
             });
-
     };
-
-
 
     return (
         <div>
@@ -84,13 +80,14 @@ function ScheduleDoctor(props) {
                 eventClick={handleEventClick}
                 events={listAppointment}
                 dateClick={handleDateClick}
+                validRange={{ start: new Date().toISOString().split("T")[0] }}
             />
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add Appointment</Modal.Title>
                 </Modal.Header>
                 <Modal.Footer>
-                    <Button variant="primary" >Add</Button>
+                    <Button variant="primary">Add</Button>
                 </Modal.Footer>
             </Modal>
         </div>
