@@ -5,6 +5,8 @@ import styled from "styled-components";
 import axios from "axios";
 import {AuthContext} from "../Context/AuthContext";
 import {jwtDecode} from "jwt-decode";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Styles = styled.div`
   a, .navbar-brand, .navbar-nav {
@@ -34,6 +36,7 @@ function NaviBar(props) {
     const token = useContext(AuthContext);
     const [username, setUsername] = useState(localStorage.getItem("username"))
     const [checkedBox, setCheckedBox] = useState(false);
+    const [startDate, setStartDate] = useState(new Date());
 
 
     const handleShow = () => {
@@ -205,10 +208,17 @@ function NaviBar(props) {
                                 <option value="FEMALE">Female</option>
                             </Form.Select>
                         </Form.Group>
-                        <Form.Group controlId="fromBasicText6">
-                            <Form.Label>Birth day</Form.Label>
-                            <Form.Control type="date" placeholder="Birth day"
-                                          onChange={(e) => setBirthDay(e.target.value)}/>
+                        <Form.Group controlId="fromBasicText6" style={{ marginTop: '15px' }}>
+                            <Form.Label style={{ marginRight: '30px' }}>Birth day</Form.Label>
+                            {/*<Form.Control type="date" placeholder="Birth day"*/}
+                            {/*              onChange={(e) => setBirthDay(e.target.value)}/>*/}
+                            <DatePicker  peekNextMonth
+                                         showMonthDropdown
+                                         showYearDropdown
+                                         dropdownMode="select"
+                                         className="form-control"
+                                         selected={startDate}
+                                         onChange={(e) => setBirthDay(e)} />
                         </Form.Group>
                         <Form.Group controlId="fromBasicCheckBox">
                             <Form.Check type="checkbox" label="I agree to the processing of personal data" checked={checkedBox} onChange={() => {setCheckedBox((!checkedBox))
