@@ -12,4 +12,6 @@ public interface DoctorService {
     DoctorDto getDoctorById(Long doctorId);
 
     List<DoctorDto> getAll();
+
+    DoctorDto changeDoctor(DoctorDto doctorDto);
 }

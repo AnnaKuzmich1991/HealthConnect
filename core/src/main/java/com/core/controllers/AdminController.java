@@ -31,8 +31,9 @@ public class AdminController {
         log.info("Have been registered doctor with login " + dto.getLogin());
         return ResponseEntity.ok(doctorDto);
     }
+
     @PostMapping("/addDepart")
-    public ResponseEntity<CategoryDto> addDepart( CategoryDto categoryDto, MultipartFile file) {
+    public ResponseEntity<CategoryDto> addDepart(CategoryDto categoryDto, MultipartFile file) {
 //        DoctorDto dto = doctorService.addDoctor(doctorDto);
 //        log.info("Have been registered doctor with login " + dto.getLogin());
         return null;
@@ -40,13 +41,14 @@ public class AdminController {
 
     @PostMapping("/changeDoctor/{doctorId}")
     public ResponseEntity<DoctorDto> changeDoctor(@RequestBody DoctorDto doctorDto, @PathVariable Long doctorId) {
-//        DoctorDto dto = doctorService.addDoctor(doctorDto);
-//        log.info("Have been registered doctor with login " + dto.getLogin());
+        doctorDto.setId(doctorId);
+        DoctorDto dto = doctorService.changeDoctor(doctorDto);
+        log.info("Have been changed doctor with login " + dto.getLogin());
         return ResponseEntity.ok(doctorDto);
     }
 
     @GetMapping("/appointmentRequest")
-    public List<AppointmentRequestDTO> appointmentRequest(){
+    public List<AppointmentRequestDTO> appointmentRequest() {
         return appointmentRequestService.getAll();
     }
 

@@ -10,8 +10,6 @@ function ClientAppointment(props) {
     let orderId;
     useEffect(() => {
         const apiUrl = 'http://localhost:8080/api/v1/client/appointment/myAppointments';
-        ;
-
         axios.get(apiUrl, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem("token")
@@ -27,9 +25,8 @@ function ClientAppointment(props) {
 
     function handleDeleteFromOrder() {
         console.log(orderId)
-        const url = 'http://localhost:8080/api/v1/client/appointment/canceled/'+orderId;
-        axios.post(url, {
-        }, {
+        const url = 'http://localhost:8080/api/v1/client/appointment/canceled/' + orderId;
+        axios.post(url, {}, {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem("token")}`
             }
@@ -38,7 +35,7 @@ function ClientAppointment(props) {
                 setListAppointment(data);
             }
         )
-            .catch(err=>alert("Error"))
+            .catch(err => alert("Error"))
     }
 
     return (
@@ -63,10 +60,12 @@ function ClientAppointment(props) {
                             <td>{d.doctorName}</td>
                             <td>{d.typeAppointment}</td>
                             <td>{d.time}</td>
-                            <td> <td><Button variant="primary" onClick={(e) => {
-                                orderId=d.orderId
-                                handleDeleteFromOrder()
-                            }}>Canceled</Button></td></td>
+                            <td>
+                                <td><Button variant="primary" onClick={(e) => {
+                                    orderId = d.orderId
+                                    handleDeleteFromOrder()
+                                }}>Canceled</Button></td>
+                            </td>
                         </tr>
                     ))}
                     </tbody>

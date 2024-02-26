@@ -79,7 +79,9 @@ function NaviBar(props) {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link href="/">Home</Nav.Link>
-                            <Nav.Link href="/doctorAppointment">Doctor appointment</Nav.Link>
+                            {role === 'ROLE_DOCTOR' && (
+                                <Nav.Link href="/doctorAppointment">Doctor appointment</Nav.Link>
+                            )}
                         </Nav>
                         <Nav>
                             {auth === "false"
@@ -94,10 +96,7 @@ function NaviBar(props) {
                                     <Button variant="outline-primary" className="me-3">{username}</Button>
                                     <Button variant="primary" className="me-3" onClick={handleLogOut}>Log out</Button>
                                 </>
-
                             }
-
-
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>

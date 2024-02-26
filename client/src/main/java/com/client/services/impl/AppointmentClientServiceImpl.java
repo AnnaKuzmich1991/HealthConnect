@@ -48,7 +48,6 @@ public class AppointmentClientServiceImpl implements AppointmentClientService {
             order.setClient(client);
             orderRepository.save(order);
         }
-
     }
 
     @Override
