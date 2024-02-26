@@ -10,6 +10,7 @@ public interface AppointmentRequestService {
     void createAppointmentRequest(AppointmentRequestDTO appointmentRequestDTO);
 
     List<AppointmentRequestDTO> getAll();
+
     List<AppointmentDto> getDoctorAppointments(String username);
 
     void setDescription(OrderDescriptionDto orderDescriptionDto);

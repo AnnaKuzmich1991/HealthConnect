@@ -1,8 +1,8 @@
-package com.client.sevices.impl;
+package com.client.services.impl;
 
 import com.client.dtos.AppointmentClientDto;
 import com.client.dtos.MyAppointmentsDto;
-import com.client.sevices.AppointmentClientService;
+import com.client.services.AppointmentClientService;
 import com.client.transformers.OrderToAppointmentByDoctorDto;
 import com.client.transformers.OrderToMyAppointmentDtoTransformer;
 import com.core.dto.AppointmentByDoctorDto;
@@ -63,8 +63,8 @@ public class AppointmentClientServiceImpl implements AppointmentClientService {
     @Override
     public void canceled(Long orderId) {
         Optional<Order> orderOptional = orderRepository.findById(orderId);
-        if (orderOptional.isPresent()){
-            Order order= orderOptional.get();
+        if (orderOptional.isPresent()) {
+            Order order = orderOptional.get();
             order.setClient(null);
             orderRepository.save(order);
         }

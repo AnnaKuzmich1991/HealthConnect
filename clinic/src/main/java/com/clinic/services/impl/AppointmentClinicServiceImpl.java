@@ -22,18 +22,19 @@ public class AppointmentClinicServiceImpl implements AppointmentClinicService {
     private final DoctorRepository doctorRepository;
     private final OrderRepository orderRepository;
     private final OrderToAppointmentByDoctorDto orderToAppointmentByDoctorDto;
+
     @Override
     public void addAppointment(AppointmentDto appointment) {
         Doctor doctor = doctorRepository.findById(appointment.getDoctorId()).orElseThrow();
-        Order order =new Order();
+        Order order = new Order();
         order.setQuantity(1);
         order.setDoctor(doctor);
         order.setTypeAppointment(doctor.getTypeAppointment());
         order.setAppointmentDate(appointment.getDate());
-        OrderStatus orderStatus=new OrderStatus();
+        OrderStatus orderStatus = new OrderStatus();
         orderStatus.setOrder(order);
         orderStatus.setTypeOrderStatus(TypeOrderStatus.NEW);
-        List<OrderStatus> orderStatuses=new ArrayList<>();
+        List<OrderStatus> orderStatuses = new ArrayList<>();
         orderStatuses.add(orderStatus);
         order.setStatuses(orderStatuses);
         orderRepository.save(order);
@@ -42,7 +43,7 @@ public class AppointmentClinicServiceImpl implements AppointmentClinicService {
     @Override
     public List<AppointmentByDoctorDto> getAppointmentDoctorList(Long id) {
         List<Order> orders = orderRepository.findAll();
-        return   orders.stream()
+        return orders.stream()
                 .filter(order -> order.getDoctor().getId().equals(id))
                 .map(orderToAppointmentByDoctorDto::transform)
                 .toList();

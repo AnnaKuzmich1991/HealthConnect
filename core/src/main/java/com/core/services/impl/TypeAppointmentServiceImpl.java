@@ -21,7 +21,7 @@ public class TypeAppointmentServiceImpl implements TypeAppointmentService {
         List<TypeAppointment> typeAppointmentsByCategory = typeAppointmentRepository.findAll();
         return typeAppointmentsByCategory
                 .stream()
-                .filter(typeAppointment -> typeAppointment.getCategory().getId()==departId)
+                .filter(typeAppointment -> typeAppointment.getCategory().getId() == departId)
                 .map(typeAppointmentToTypeAppointmentDtoConvertor::convert)
                 .toList();
     }

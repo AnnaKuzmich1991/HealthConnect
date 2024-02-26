@@ -3,12 +3,10 @@ package com.core.convertors;
 import com.core.dto.CategoryDto;
 import com.core.dto.TypeAppointmentDto;
 import com.core.models.Category;
-import com.core.models.TypeAppointment;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor

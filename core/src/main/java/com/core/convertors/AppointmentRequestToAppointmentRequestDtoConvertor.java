@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class AppointmentRequestToAppointmentRequestDtoConvertor extends Convertor<AppointmentRequest, AppointmentRequestDTO> {
     @Override
     public AppointmentRequestDTO convert(AppointmentRequest appointmentRequest) {
-        AppointmentRequestDTO appointmentRequestDTO=new AppointmentRequestDTO();
+        AppointmentRequestDTO appointmentRequestDTO = new AppointmentRequestDTO();
         appointmentRequestDTO.setDoctorId(appointmentRequest.getDoctor().getId());
         appointmentRequestDTO.setDoctorName(appointmentRequest.getDoctor().getLastName());
         appointmentRequestDTO.setPhone(appointmentRequest.getPhone());

@@ -15,8 +15,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CategoryClientController {
     private final CategoryServiceImpl categoryService;
+
     @GetMapping
-    public ResponseEntity<List<CategoryDto>>  getAll(){
-        return ResponseEntity.ok(categoryService.getAllCategories())   ;
+    public ResponseEntity<List<CategoryDto>> getAll() {
+        return ResponseEntity.ok(categoryService.getAllCategories());
     }
 }

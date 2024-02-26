@@ -3,7 +3,6 @@ package com.core.controllers;
 import com.core.dto.AppointmentRequestDTO;
 import com.core.dto.CategoryDto;
 import com.core.dto.DoctorDto;
-import com.core.models.AppointmentRequest;
 import com.core.services.impl.AppointmentRequestServiceImpl;
 import com.core.services.impl.DoctorServiceImpl;
 import lombok.RequiredArgsConstructor;

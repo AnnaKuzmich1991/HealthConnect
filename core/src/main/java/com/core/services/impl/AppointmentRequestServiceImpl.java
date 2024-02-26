@@ -31,7 +31,7 @@ public class AppointmentRequestServiceImpl implements AppointmentRequestService 
 
     @Override
     public void createAppointmentRequest(AppointmentRequestDTO appointmentRequestDTO) {
-        AppointmentRequest appointmentRequest=new AppointmentRequest();
+        AppointmentRequest appointmentRequest = new AppointmentRequest();
         appointmentRequest.setPhone(appointmentRequestDTO.getPhone());
         appointmentRequest.setRequestTime(LocalDateTime.now());
         appointmentRequest.setMessage(appointmentRequestDTO.getMessage());
@@ -54,7 +54,7 @@ public class AppointmentRequestServiceImpl implements AppointmentRequestService 
     public List<AppointmentDto> getDoctorAppointments(String username) {
         User user = userRepository.findByLogin(username);
         Optional<Doctor> doctorOptional = doctorRepository.findById(user.getId());
-        if (doctorOptional.isPresent()){
+        if (doctorOptional.isPresent()) {
             Doctor doctor = doctorOptional.get();
             List<Order> allByDoctorId = orderRepository.findAllByDoctorId(doctor.getId());
             return allByDoctorId
@@ -68,7 +68,7 @@ public class AppointmentRequestServiceImpl implements AppointmentRequestService 
     @Override
     public void setDescription(OrderDescriptionDto orderDescriptionDto) {
         Optional<Order> optionalOrder = orderRepository.findById(orderDescriptionDto.getOrderId());
-        if (optionalOrder.isPresent()){
+        if (optionalOrder.isPresent()) {
             Order order = optionalOrder.get();
             order.setDescription(orderDescriptionDto.getDescription());
             OrderStatus orderStatus = order.getStatuses().get(0);

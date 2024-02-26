@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class OrderDescriptionDto {
-    private Long  orderId;
+    private Long orderId;
     private String description;
 }

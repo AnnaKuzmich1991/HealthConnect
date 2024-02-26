@@ -6,8 +6,6 @@ import com.core.dto.AppointmentByDoctorDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -18,13 +16,14 @@ public class AppointmentController {
     private final AppointmentClinicServiceImpl appointmentClinicService;
 
     @PostMapping
-    public List<AppointmentByDoctorDto> setAppointment(@RequestBody AppointmentDto appointment){
+    public List<AppointmentByDoctorDto> setAppointment(@RequestBody AppointmentDto appointment) {
         appointmentClinicService.addAppointment(appointment);
         return appointmentClinicService.getAppointmentDoctorList(appointment.getDoctorId());
 
     }
+
     @GetMapping("/byDoctor/{id}")
-    public List<AppointmentByDoctorDto> getAppointmentByDoctor(@PathVariable Long id){
+    public List<AppointmentByDoctorDto> getAppointmentByDoctor(@PathVariable Long id) {
         return appointmentClinicService.getAppointmentDoctorList(id);
     }
 

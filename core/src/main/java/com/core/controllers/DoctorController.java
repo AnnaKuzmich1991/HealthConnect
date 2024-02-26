@@ -13,12 +13,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/public/doctors")
 @RequiredArgsConstructor
-@CrossOrigin(origins = {"http://localhost:3006","http://localhost:3000"})
+@CrossOrigin(origins = {"http://localhost:3006", "http://localhost:3000"})
 public class DoctorController {
     private final DoctorServiceImpl doctorService;
 
     @GetMapping
-    public List<DoctorDto> getDoctors(){
+    public List<DoctorDto> getDoctors() {
         return doctorService.getAll();
     }
 }

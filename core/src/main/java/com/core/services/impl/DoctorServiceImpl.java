@@ -13,7 +13,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,7 +49,8 @@ public class DoctorServiceImpl implements DoctorService {
                 .toList();
 
     }
-//для вывода ФИО доктора в календаре
+
+    //для вывода ФИО доктора в календаре
     @Override
     public DoctorDto getDoctorById(Long doctorId) {
         return doctorRepository.findById(doctorId)

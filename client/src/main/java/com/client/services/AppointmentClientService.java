@@ -1,4 +1,4 @@
-package com.client.sevices;
+package com.client.services;
 
 import com.client.dtos.AppointmentClientDto;
 import com.client.dtos.MyAppointmentsDto;

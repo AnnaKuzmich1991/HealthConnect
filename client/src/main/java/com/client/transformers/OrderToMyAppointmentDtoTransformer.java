@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class OrderToMyAppointmentDtoTransformer {
-    public MyAppointmentsDto transform(Order order){
+    public MyAppointmentsDto transform(Order order) {
         MyAppointmentsDto myAppointments = new MyAppointmentsDto();
         myAppointments.setOrderId(order.getId());
         myAppointments.setTypeAppointment(order.getTypeAppointment().getName());
